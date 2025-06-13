@@ -1,0 +1,181 @@
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #e0f7fa;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.5s, color 0.5s;
+}
+
+.container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  position: relative;
+  width: 400px;
+  min-height: 500px;
+}
+
+/* Input & Button */
+input {
+  padding: 12px;
+  margin: 15px 0;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0077cc;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+#weather-result {
+  margin-top: 30px;
+}
+
+/* Weather Icon + Temperature */
+#temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Description and Wind Speed */
+#description {
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+#wind {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #d78417;
+}
+
+/* Local Time */
+#local-time {
+  margin-top: 15px;
+  font-size: 1em;
+  color: #d78417;
+}
+
+/* Weather Effects */
+body.rain::before,
+body.sunny::before,
+body.breeze::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* 🌧️ Rain */
+body.rain::before {
+  background-image: url('media/rain.gif');
+  opacity: 0.8;
+}
+
+/* ☀️ Sunny */
+body.sunny::before {
+  background-image: url('media/sun.gif');
+  opacity: 0.6;
+  animation: sunnyPulse 6s infinite alternate;
+}
+
+/* 🌬️ Breeze */
+body.breeze::before {
+  background-image: url('media/breeze.gif');
+  opacity: 1;
+}
+
+/* Pulse animation for sun */
+@keyframes sunnyPulse {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* 🔄 Dark Mode */
+body.dark-mode {
+
+  color: #f0f0f0;
+}
+
+body.dark-mode .container {
+  background: #2c2c2c;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode input {
+  background: #444;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+body.dark-mode button {
+  background-color: #555;
+}
+
+body.dark-mode button:hover {
+  background-color: #777;
+}
+
+body.dark-mode #local-time{
+  color: #bbb; /* a lighter/brighter shade for visibility */
+
+}
+body.dark-mode #wind {
+  color: #bbb;
+}
+
+/* 🌓 Dark Mode Toggle Button */
+.toggle-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ccc;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body.dark-mode .toggle-btn {
+  background: #444;
+  color: white;
+}

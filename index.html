@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style_weather_effects.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('images/weather-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+    }
+
+
+    .container {
+      max-width: 500px;
+      margin: 100px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #00d1ff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 65%;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      margin-left: 10px;
+      cursor: pointer;
+      background-color: #00d1ff;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgb(141, 155, 130);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .toggle-btn.dark {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    #temperature {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    #weather-result p {
+      margin: 6px 0;
+      font-size: 1.1rem;
+    }
+
+    .dark-mode .container {
+      background: rgba(20, 20, 20, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme toggle button -->
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+
+  <div class="container">
+    <h1>Weather App</h1>
+    <input type="text" id="city" placeholder="Enter city name" />
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="weather-result" style="display: none;">
+      <h2 id="location"></h2>
+      <div id="temperature">
+        <img id="icon" src="" alt="Weather Icon" />
+        <span id="temp-text"></span>
+      </div>
+      <p id="description"></p>
+      <p id="wind"></p>
+      <p id="local-time"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      const btn = document.querySelector(".toggle-btn");
+      btn.classList.toggle("dark");
+    }
+  </script>
+</body>
+</html>
